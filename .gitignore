@@ -9,7 +9,9 @@ TestResults/
 coverage/
 artifacts/
 .dotnet/
+.dotnet10/
 .dotnet-home/
+.dotnet10-home/
 .dotnet-install.ps1
 .android-sdk/
 .android-tools.zip

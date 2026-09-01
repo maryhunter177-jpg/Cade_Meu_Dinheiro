@@ -1,6 +1,6 @@
 # Cadê Meu Dinheiro?
 
-Plataforma multiplataforma de finanças pessoais criada com .NET 8, ASP.NET Core, PostgreSQL e .NET MAUI. A fundação atual entrega autenticação por JWT, regras financeiras, transações isoladas por usuário, dashboard e uma identidade visual própria.
+Plataforma multiplataforma de finanças pessoais criada com ASP.NET Core 8, PostgreSQL e .NET MAUI 10. A fundação atual entrega autenticação por JWT, regras financeiras, transações isoladas por usuário, dashboard e uma identidade visual própria.
 
 ## Arquitetura
 
@@ -20,7 +20,7 @@ Consulte [architecture.md](docs/architecture.md), [security.md](docs/security.md
 
 ## Executar localmente
 
-Pré-requisitos: SDK .NET 8 com workload MAUI, Docker Desktop e PostgreSQL 16 (se não usar Compose).
+Pré-requisitos: SDK .NET 10 com workload MAUI, runtime/targeting pack .NET 8 para o backend, Docker Desktop e PostgreSQL 16 (se não usar Compose).
 
 ```powershell
 Copy-Item .env.example .env
@@ -69,11 +69,11 @@ Refresh tokens rotativos e recuperação de senha; CRUD completo de categorias/o
 
 ## Estado de validação
 
-Validado localmente com SDK .NET 8.0.424 e workload MAUI Windows 8.0.3:
+Validado localmente com SDK .NET 10.0.400 e MAUI 10.0.100 no cliente, mantendo o backend em .NET 8:
 
 - API Release: compilação com zero avisos e zero erros.
-- MAUI Windows `win-x64` Release: compilação com zero avisos e zero erros.
+- MAUI Android `arm64` Release: compilação/AOT com zero avisos e zero erros; APK assinado e alinhado para páginas de 16 KB.
 - Testes unitários: 11 aprovados, zero falhas.
 - XML, XAML e JSON: todos os arquivos parseados com sucesso.
 
-Android e iOS exigem os workloads e SDKs nativos dos respectivos hosts. PostgreSQL/Docker não foram iniciados neste ambiente; execute a migration e os testes de integração antes de publicar.
+Windows e iOS exigem os workloads e SDKs nativos dos respectivos hosts para nova validação. PostgreSQL/Docker não foram iniciados neste ambiente; execute a migration e os testes de integração antes de publicar.

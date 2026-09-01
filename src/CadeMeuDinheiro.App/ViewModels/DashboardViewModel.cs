@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CadeMeuDinheiro.App.Services;
@@ -26,7 +27,11 @@ public partial class DashboardViewModel(FinanceApiClient api) : ObservableObject
             Balance = data.Balance; Income = data.Income; Expenses = data.Expenses;
             Recent.Clear(); foreach (var item in data.Recent) Recent.Add(new(item.Description, item.Amount, item.Type, item.OccurredOn));
         }
+        catch (OperationCanceledException) { HasError = true; }
         catch (HttpRequestException) { HasError = true; }
+        catch (JsonException) { HasError = true; }
+        catch (NotSupportedException) { HasError = true; }
+        catch (InvalidOperationException) { HasError = true; }
         finally { IsBusy = false; OnPropertyChanged(nameof(HasNoTransactions)); }
     }
     [RelayCommand] private static Task OpenTransactionsAsync() => Shell.Current.GoToAsync("//transactions");
