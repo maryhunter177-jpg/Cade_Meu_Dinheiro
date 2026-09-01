@@ -1,0 +1,24 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - run: dotnet restore tests/CadeMeuDinheiro.UnitTests/CadeMeuDinheiro.UnitTests.csproj
+      - run: dotnet build tests/CadeMeuDinheiro.UnitTests/CadeMeuDinheiro.UnitTests.csproj -c Release --no-restore
+      - run: dotnet test tests/CadeMeuDinheiro.UnitTests/CadeMeuDinheiro.UnitTests.csproj -c Release --no-build --collect:"XPlat Code Coverage"
+      - run: docker build -t cade-meu-dinheiro:${{ github.sha }} .
+  maui-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - run: dotnet workload install maui
+      - run: dotnet restore src/CadeMeuDinheiro.App/CadeMeuDinheiro.App.csproj -p:TargetFrameworks=net8.0-windows10.0.19041.0 -r win-x64
+      - run: dotnet build src/CadeMeuDinheiro.App/CadeMeuDinheiro.App.csproj -c Release -f net8.0-windows10.0.19041.0 -r win-x64 -p:Platform=x64 --no-restore

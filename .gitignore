@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+.idea/
+.env
+*.user
+*.suo
+TestResults/
+coverage/
+artifacts/
+.dotnet/
+.dotnet-home/
+.dotnet-install.ps1
+.android-sdk/
+.android-tools.zip
+.jdk/
+.jdk17.zip

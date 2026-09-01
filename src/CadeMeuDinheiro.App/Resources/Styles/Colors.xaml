@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+  <Color x:Key="Navy900">#102A43</Color><Color x:Key="Navy700">#243B53</Color><Color x:Key="Emerald500">#13A875</Color>
+  <Color x:Key="Emerald100">#D9F7EC</Color><Color x:Key="Amber500">#F4B740</Color><Color x:Key="Red500">#D64550</Color>
+  <Color x:Key="Gray900">#182026</Color><Color x:Key="Gray600">#52606D</Color><Color x:Key="Gray200">#E8ECF0</Color><Color x:Key="Gray50">#F7F9FB</Color><Color x:Key="White">#FFFFFF</Color>
+</ResourceDictionary>

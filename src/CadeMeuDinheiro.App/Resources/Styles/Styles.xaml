@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+  <Style TargetType="ContentPage"><Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray50}, Dark=#0B1218}"/></Style>
+  <Style TargetType="Label"><Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark=#F3F6F8}"/><Setter Property="FontSize" Value="15"/></Style>
+  <Style x:Key="Title" TargetType="Label"><Setter Property="FontSize" Value="28"/><Setter Property="FontAttributes" Value="Bold"/><Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark=#F3F6F8}"/></Style>
+  <Style x:Key="Caption" TargetType="Label"><Setter Property="FontSize" Value="13"/><Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray600}, Dark=#A9B7C3}"/></Style>
+  <Style x:Key="Card" TargetType="Border"><Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark=#17212B}"/><Setter Property="Padding" Value="20"/><Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark=#2D3B47}"/><Setter Property="StrokeThickness" Value="1"/><Setter Property="StrokeShape"><Setter.Value><RoundRectangle CornerRadius="20"/></Setter.Value></Setter></Style>
+  <Style x:Key="PrimaryButton" TargetType="Button"><Setter Property="BackgroundColor" Value="{StaticResource Emerald500}"/><Setter Property="TextColor" Value="White"/><Setter Property="CornerRadius" Value="14"/><Setter Property="HeightRequest" Value="52"/><Setter Property="FontAttributes" Value="Bold"/><Setter Property="MinimumWidthRequest" Value="48"/></Style>
+</ResourceDictionary>
