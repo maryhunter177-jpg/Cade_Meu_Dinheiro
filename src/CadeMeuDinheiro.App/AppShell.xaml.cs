@@ -1,12 +1,14 @@
 using CadeMeuDinheiro.App.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CadeMeuDinheiro.App;
 
 public partial class AppShell : Shell
 {
-    public AppShell(DashboardPage dashboardPage)
+    public AppShell(IServiceProvider services)
     {
         InitializeComponent();
-        DashboardContent.Content = dashboardPage;
+        DashboardContent.ContentTemplate = new DataTemplate(
+            () => services.GetRequiredService<DashboardPage>());
     }
 }
